@@ -9,7 +9,7 @@ public:
 	
 };
 class derived:public Base{
-	virtual int Getvalue(){return 6;}
+	 int Getvalue(){return 99;}
 };
 int main(){
 	derived cderived;
