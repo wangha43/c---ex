@@ -17,7 +17,7 @@ void makeACallFromPhoneBooth()
 }
 
 int main(){
-	 std::thread man1(makeACallFromPhoneBooth);
+	  std::thread man1(makeACallFromPhoneBooth);
     //Although man2 appears to start second, there's a good chance he might
     //reach the phone booth before man1
     std::thread man2(makeACallFromPhoneBooth);
