@@ -3,6 +3,9 @@ using namespace std;
 class Base
 {
 public:
+    Base(){
+        cout << "Base::Base()" <<endl;
+    }
    virtual ~Base()
     {
         cout << "Calling ~Base()" << endl;
@@ -17,6 +20,7 @@ private:
 public:
     Derived(int nLength)
     {
+        cout << "Derived::Derived()" <<endl;
         m_pnArray = new int[nLength];
     }
  
@@ -29,8 +33,9 @@ public:
 
 int main()
 {
-    Derived *pDerived = new Derived(5);
-    Base *pBase = pDerived;
+    // Derived *pDerived = new Derived(5);
+    // Base *pBase = pDerived;
+    Base *pBase = new Derived(5);
     delete pBase;
 /*------------------the result is ----------------------*/ 
 //Calling ~Derived()
