@@ -30,6 +30,4 @@ public:
         value=data_queue.front();  
         data_queue.pop();  
     } 
-
-
 }
