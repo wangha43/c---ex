@@ -9,7 +9,9 @@ public:
 	
 };
 class derived:public Base{
-	 int Getvalue(){return 99;}
+	 int Getvalue(){
+	 	return 99;
+	 }
 };
 int main(){
 	derived cderived;

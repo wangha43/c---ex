@@ -31,6 +31,7 @@ public:
     }
 };
 
+//deconstructors
 int main()
 {
     // Derived *pDerived = new Derived(5);
