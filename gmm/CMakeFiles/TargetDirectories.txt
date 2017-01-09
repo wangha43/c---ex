@@ -1,0 +1,3 @@
+/home/wxc/mycpp/gmm/CMakeFiles/rebuild_cache.dir
+/home/wxc/mycpp/gmm/CMakeFiles/edit_cache.dir
+/home/wxc/mycpp/gmm/CMakeFiles/gmm.dir
