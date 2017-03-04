@@ -24,10 +24,8 @@ template <class T>
 class DynamicSet
 {
 public:
-    virtual ~DynamicSet();
-    virtual ResultCode Search(T &x)const = 0;
-    virtual ResultCode Insert(T &x) = 0;
-    virtual ResultCode Remove(T &x) = 0;
+    virtual ResultCode search(T &x)const = 0;
+    virtual ResultCode Insert(T x) = 0;
 };
 
 template <class T>
@@ -57,11 +55,11 @@ class BSTree:public DynamicSet<T>
 {
 public:
     explicit BSTree(){ root = NULL;}
-    virtual ~BSTree(){Clear(root);}
-    ResultCode Search(T &x) const;
-    ResultCode Search(T &x) const;
-    ResultCode Insert(T &x);
-    ResultCode Remove(T &x);
+//    virtual ~BSTree(){Clear(root);}
+    ResultCode search(T &x) const;
+//    ResultCode Search(T &x) const;
+    ResultCode Insert(T x);
+    ResultCode Remove(BTNode<T>  *x,T b);
 protected:
     BTNode<T> *root;
 private:
@@ -97,7 +95,7 @@ ResultCode BSTree<T>::search(T &x) const
 }
 
 template <class T>
-ResultCode BSTree<T>::Insert(T &x)
+ResultCode BSTree<T>::Insert(T x)
 {
     BTNode<T> *p = root,*q = NULL;
     while(p){
@@ -117,7 +115,7 @@ ResultCode BSTree<T>::Insert(T &x)
 }
 
 template <class T>
-ResultCode BSTree<T>::remove(BTNode <T> *ro,T &x)
+ResultCode BSTree<T>::Remove(BTNode<T> *ro,T x)
 {
     BTNode <T> *c,*s,*r,*p = ro,*q = NULL;
     while(p && p->element != x){
@@ -148,12 +146,12 @@ ResultCode BSTree<T>::remove(BTNode <T> *ro,T &x)
         return Success;
     }
     else if(p->lChild && p->rChild){//two child
-        c=p;
+        c=p->rChild;
         while(c->lChild!=NULL){
             c = c->lChild;
         }
         p->element = c->element;
-        remove(p->rChild,c->element);
+        Remove(p->rChild,c->element);
     }
 }
 

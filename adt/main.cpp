@@ -1,9 +1,17 @@
 #include <QCoreApplication>
-
-int main(int argc, char *argv[])
+#include "bst.cpp"
+int main()
 {
-    QCoreApplication a(argc, argv);
+BSTree<int> *bst = new BSTree<int>();
+bst->Insert(3);
+//bst->Insert(4);
+//bst->Insert(5);
+//bst->Insert(6);
+//bst->Insert(-1);
+//bst->Insert(1);
+//bst->Insert(2);
 
-    return a.exec();
+delete bst;
+return 0;
 }
 
