@@ -13,7 +13,7 @@ void fun(int num){
 	for(int i=0;i<50;i++){  
         unique_lock<mutex> lk(m);//A unique lock is an object that manages a mutex object with unique ownership in both states: locked and unlocked.  
         while(flag!=num)  
-            cond.wait(lk);//在调用wait时会执行lk.unlock()  
+            cond.wait(lk);//wait for notify
         for(int j=0;j<num;j++)  
             cout<<j<<" ";  
         cout<<endl;  
